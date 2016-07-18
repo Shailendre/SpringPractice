@@ -25,4 +25,63 @@
     </bean>
 
 
+    <!-- the student bean contains address bean -->
+    <bean id="student" class="org.shailendra.singh.Student">
+        <constructor-arg value="ross"/>
+        <constructor-arg ref="address"/>
+    </bean>
+
+    <!-- the addr to be passed to student -->
+    <bean id="address" class="org.shailendra.singh.Address">
+        <property name="city" value="New York City"/>
+        <property name="state" value="New York"/>
+    </bean>
+
+    <!-- the question bean contains answer bean -->
+    <bean id="q1" class="org.shailendra.singh.Question">
+        <constructor-arg value="001"/>
+        <constructor-arg value="Who designed and implemented Spring framework?"/>
+        <constructor-arg ref="a1"/>
+    </bean>
+
+    <bean id="a1" class="org.shailendra.singh.Answer">
+        <property name="qid" value="001"/>
+        <property name="answers">
+            <list>
+                <value>Rod Johnson</value>
+                <value>James Gosling</value>
+                <value>Russo van</value>
+                <value>None</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="q2" class="org.shailendra.singh.Question">
+        <constructor-arg value="002"/>
+        <constructor-arg value="Who designed and implemented Python?"/>
+        <constructor-arg ref="a2"/>
+    </bean>
+
+    <bean id="a2" class="org.shailendra.singh.Answer">
+        <property name="qid" value="002"/>
+        <property name="answers">
+            <list>
+                <value>Rod Johnson</value>
+                <value>James Gosling</value>
+                <value>Russo van</value>
+                <value>None</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- passing question map -->
+    <bean id="qmap" class="org.shailendra.singh.Question2">
+        <constructor-arg>
+            <map>
+                <entry key="001" value-ref="q1"/>
+                <entry key="002" value-ref="q2"/>
+            </map>
+        </constructor-arg>
+    </bean>
 </beans>
