@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<context:annotation-config/>
 
     <bean id="triangle" class="org.shailendra.singh.Triangle">
         <property name="pointA" ref="pointA"/>
@@ -84,4 +94,17 @@
             </map>
         </constructor-arg>
     </bean>
+
+    <!-- bean for person; autowired(byType is default) to customer bean; -->
+    <bean id="person1" class="org.shailendra.singh.Person">
+        <property name="age" value="23" />
+        <property name="gender" value="m"/>
+        <property name="name" value="joe"/>
+    </bean>
+
+    <!-- property person is autowired -->
+    <bean id="cust1" class="org.shailendra.singh.Customer">
+        <property name="itemsInCart" value="12"/>
+    </bean>
+
 </beans>

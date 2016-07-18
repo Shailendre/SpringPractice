@@ -64,7 +64,20 @@ public class DriverClass {
         * print the questions
         * */
         qmap.displayQuestion();
-        
+
+
+        /*
+        * get the customer bean
+        * */
+
+        Customer cust1 = (Customer) applicationContext.getBean("cust1");
+
+        /*
+        * print the customer info
+        * */
+
+        cust1.displayCustomerInfo();
+
     }
 
 }
